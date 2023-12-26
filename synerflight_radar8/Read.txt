@@ -1,0 +1,32 @@
+5 Meter range us100 Y401 sonar (2023 update distance of sonar to 5 meters Note: sensitivity or acurracy may Vari )
+
+
+Inorder for this to work Bluetooth radio must be set to a on Communication serial on any device to baud  57600 
+Radar_F and Radar_R are servo reverse option
+
+
+in the application folder look for the Data file>
+
+
+Data Folder>
+
+COM31               //Serial COM Port your bluetooth telemetry is on (change this to the comport your Raday Bluetooth/Radio is on)
+SynerFlight Radar   //Title of the Radar
+
+Arduino Sketch> Radar_Arduino_sketch.ino
+
+Sonar
+const int trigPin = D2;
+const int echoPin = D3;
+
+myServo.attach(4); // Defines on which pin is the Radar servo motor attached  this is where the sonar is mounted to 
+
+Aux output  to be connected to the Aux input of the Controller
+myServoA.attach(5); // Defines on which pin is the  A servo = D5
+myServoB.attach(6); // Defines on which pin is the  B servo = D6
+myServoC.attach(7); // Defines on which pin is the  C servo = D7
+myServoD.attach(8); // Defines on which pin is the  D servo = D8
+
+int inputdistance = 40; // set Distance to trigger the PWM Aux Switch in 40cm (change this to change the trigger distance)
+
+synerflight_radar8.pde>

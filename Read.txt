@@ -1,4 +1,5 @@
-2 Meter range us100 Y401 sonar
+5 Meter range us100 Y401 sonar (Aug 22 2023 update distance of sonar to 5 meters Note: sensitivity or acurracy may Vari )
+2 trigger servo range
 
 
 Inorder for this to work Bluetooth radio must be set to a on Communication serial on any device to baud  57600 
@@ -10,17 +11,32 @@ in the application folder look for the Data file>
 
 Data Folder>
 
-COM31               //Serial COM Port your bluetooth telemetry is on (change this to the comport your Raday Bluetooth/Radio is on)
+COM11               //Serial COM Port your bluetooth telemetry is on (change this to the comport your Raday Bluetooth/Radio is on)
 SynerFlight Radar   //Title of the Radar
 
-Arduino Sketch>
+Arduino Sketch> Radar_Arduino_sketch-5m5.ino
 
 Sonar
 const int trigPin = D2;
 const int echoPin = D3;
 
-myServo.attach(4); // Defines on which pin is the Radar servo motor attached  this is where the sonar is mounted to 
-myServoA.attach(5); // Defines on which pin is the  A servo motor attached this is connected to the Shield PWM input A14
-myServoB.attach(6); // Defines on which pin is the  B servo motor attached this is connected to the Shield PWM input A15
+input trigger distance
+int inputdistance = 120; // set Distance to trigger the PWM Aux Switch in cm (change this to adjust trigger distance)Stop
+int inputdistance1 = 120; // set Distance to trigger the PWM Aux Switch in cm (change this to adjust trigger distance)Steer
+int inputdistance2 = 110; // set Distance to trigger the PWM Aux Switch in cm (change this to adjust trigger distance)Reverse
 
-int inputdistance = 40; // set Distance to trigger the PWM Aux Switch in cm
+myServo.attach(4); // Defines on which pin is the Radar servo motor attached  this is where the sonar is mounted to 
+
+Defines on which pin is the Aux trigger input is attached this is connected to the Shield Aux 14 or A 15 PWM input for synerduino Arduino 
+myServoA.attach(5); // Defines Trigger 
+myServoC.attach(6); // Defines Trigger 
+myServoC.attach(7); // Defines Trigger 
+
+Pin for LED indicator or trigger ADC V, I, RSSI for Synerduino STM
+pinMode( 13 , OUTPUT); // LED indicator
+pinMode( 12 , OUTPUT); // LED indicator
+pinMode( 11 , OUTPUT); // LED indicator
+or you can change the sketch input on 
+
+
+synerflight_radar8.pde>

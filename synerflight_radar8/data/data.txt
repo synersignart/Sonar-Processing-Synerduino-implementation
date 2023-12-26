@@ -1,0 +1,4 @@
+COM11
+SynerFlight Radar
+Baud57600
+
